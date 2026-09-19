@@ -396,6 +396,14 @@ Error generating stack: `+e.message+`
   </section>
 
   <div class="sources source-links">
+    <strong>Project:</strong>
+    Created as a submission for
+    <a
+      href="https://makeovermonday.vercel.app/dataset/what-are-the-world-s-deadliest-animals"
+      rel="noreferrer"
+      target="_blank"
+      >MakeoverMonday</a
+    >. <br /><br />
     <strong>Data &amp; methodology:</strong> adapted from Hannah Ritchie &amp;
     Fiona Spooner,
     <a
