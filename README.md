@@ -1,6 +1,6 @@
 # Deadliest Animals
 
-An interactive scrollytelling data story about the animals associated with the most human deaths — and why the risks we fear most are not always the ones that matter most.
+An interactive scrollytelling data story about the animals associated with the most human deaths — and why the animals that feel most frightening are not always the ones associated with the most deaths.
 
 **Live site:** [https://jessi88.github.io/deadliest-animals/](https://jessi88.github.io/deadliest-animals/)
 
@@ -10,13 +10,13 @@ The story starts with familiar animals such as wolves, sharks, bears, and crocod
 
 The final chart becomes interactive, allowing readers to filter animals and explore how the radial scale changes with the selection.
 
-The project focuses not only on the ranking itself, but also on the mechanisms behind the numbers: direct attacks, venom, conflict, and diseases transmitted by animals such as mosquitoes, dogs, tsetse flies, freshwater snails, and kissing bugs.
+The project focuses not only on the ranking itself, but also on the mechanisms behind the numbers: direct attacks, venom, human violence and conflict, and diseases transmitted through animals such as mosquitoes, dogs, tsetse flies, freshwater snails, and kissing bugs.
 
 ## Important note about the data
 
 The visualization is based on Our World in Data's **Deadliest Animals** analysis. OWID presents its main comparison as a **2023** chart, but the values should not all be interpreted as directly observed deaths in 2023.
 
-They are **rounded annual estimates** assembled from the best available evidence. Many disease estimates use 2023 data, while several animal-attack categories rely on multi-year averages, national records, or other recent studies. The broad differences in magnitude are therefore more meaningful than the exact individual values.
+They are **rounded annual estimates** assembled from the best available evidence. Many disease estimates use 2023 data, while several animal-attack categories rely on multi-year averages, national records, or other recent studies. OWID's article estimates around 920,000 annual deaths from non-human animals and about 600,000 from direct violence and conflict among humans. The broad differences in magnitude are therefore more meaningful than the exact individual values.
 
 Sources:
 
@@ -43,7 +43,7 @@ Sources:
 - CSS
 - Tailwind CSS
 
-The chart logic is written in vanilla JavaScript/SVG and initialized from the React app.
+The current polar-chart rendering, interaction, and animation logic is written in vanilla JavaScript/SVG and initialized from the React app.
 
 ## Project structure
 
@@ -106,21 +106,18 @@ Additional metadata used by the visualization, including labels, tooltip copy, i
 src/data/animals.js
 ```
 
+## AI assistance
+
+AI was used substantially during development, especially for code generation, debugging, responsive refinement, copy refinement, and source research/cross-checking. The story concept, data selection, narrative direction, visual and editorial decisions, source review, testing, and final approval remained human-directed.
+
+The live site includes a more detailed **AI Assistance Facts** table. Its labels are qualitative role descriptions, not measured percentages. The disclosure format was inspired by Hiroshi Sato's “AI Assistance Facts” in [*How – and why – to say no when a friend asks for a discount*](https://uxdesign.cc/how-to-say-no-when-a-friend-asks-for-a-discount-d0e48087eb1d) (UX Collective, 2026).
+
 ## Image and icon credits
 
-The opening mosquito photograph is **“Mosquito Bite” by NIAID**, sourced via Wikimedia Commons and used under **CC BY 2.0**. It is cropped and darkened for the layout.
+The opening photograph is **“A child sleeping under a mosquito net to prevent mosquito bite” by HarunaSylvester**, sourced via Wikimedia Commons and used under **CC BY-SA 4.0**. It is displayed with cropping, darkening, and blending for the hero layout.
 
 Animal icons from [Game-icons.net](https://game-icons.net/) are used under **CC BY 3.0**, with attribution to Lorc, Delapouite, Carl Olsen, Skoll, and Cathelineau as listed in the site's source credits.
 
 The hippo, dog, and mosquito silhouettes use **Font Awesome Free** SVG icons, delivered through Iconify, under **CC BY 4.0**.
 
 Full attribution and source details are included on the live site.
-
-## Author
-
-**Jessica Bosch**  
-Data visualization, storytelling, and development
-
-- [Portfolio](https://jessi88.github.io/)
-- [LinkedIn](https://www.linkedin.com/in/jbosch88/)
-- [GitHub](https://github.com/jessi88)

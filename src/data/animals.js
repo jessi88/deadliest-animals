@@ -1,42 +1,276 @@
 export const animals = [
-      {name:'Gray wolves',short:'Wolves',value:5,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/wolf-head.svg',mechanism:'Fatal attacks and, in some records, rabies.',fact:'This is not a literal 2023 count. OWID uses 5 as an uncertain annual estimate. NINA recorded 26 fatalities from 2002–2020 (about 2 per year), most involving rabies; OWID allows for incomplete coverage outside Europe and North America.'},
-      {name:'Sharks',short:'Sharks',value:6,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/shark-fin.svg',mechanism:'Fatal shark attacks.',fact:'This is not a literal 2023 count. The International Shark Attack File logged 54 fatal attacks from 2010–2019 — about 6 per year. It reported 14 fatalities in 2023, showing how much the annual total can fluctuate.'},
-      {name:'Bears',short:'Bears',value:20,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/bear-head.svg',mechanism:'Fatal bear attacks across several species.',fact:'OWID combines several bear species and uses about 20 deaths per year from historical records rather than a single 2023 count. Brown bears and sloth bears account for most documented fatal attacks.'},
-      {name:'Spiders',short:'Spiders',value:50,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/carl-olsen/spider-alt.svg',mechanism:'Fatal envenomation after spider bites.',fact:'The WHO Mortality Database reports roughly 50 deaths per year in countries with relatively complete registration. OWID notes that this likely undercounts countries with weaker death-registration systems.'},
-      {name:'Hippopotamuses',short:'Hippos',value:50,display:'>50',iconUrl:'https://api.iconify.design/fa6-solid/hippo.svg?color=%23191917',mechanism:'Fatal encounters with hippos.',fact:'OWID places the annual toll at roughly 50; the source summary table marks it as >50. National records suggest the widely repeated 500 figure is too high. Hippo encounters can still have a high fatality rate when they occur.'},
-      {name:'Jellyfish',short:'Jellyfish',value:100,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/jellyfish.svg',mechanism:'Fatal stings, especially from box jellyfish and Irukandji.',fact:'OWID uses about 100 deaths per year, not a literal 2023 count. The estimate is highly uncertain because recent global reporting is incomplete in places where lethal stings occur.'},
-      {name:'Crocodiles',short:'Crocodiles',value:150,display:'>150',iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/croc-jaws.svg',mechanism:'Fatal crocodile attacks.',fact:'This annual estimate is based on multi-year attack records: CrocBITE averaged about 160 deaths per year in 2010–2019, while CrocAttack data for 2015–2024 total about 150 per year for covered countries. OWID therefore uses >150.'},
-      {name:'Big cats',short:'Big cats',value:300,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/tiger-head.svg',mechanism:'Fatal attacks by tigers, lions and other large cats.',fact:'This is a rounded annual estimate, not a 2023 count: OWID combines roughly 100 deaths from tigers, 100 from lions and 100 from other big cats such as leopards.'},
-      {name:'Bees, wasps & hornets',short:'Bees / wasps',value:500,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/bee.svg',mechanism:'Mostly anaphylactic shock after stings.',fact:'The source table rounds this to 500 per year. OWID’s detailed methodology says the recorded total is just over 500 and likely an underestimate because many countries are missing from the mortality data.'},
-      {name:'Elephants',short:'Elephants',value:1000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/elephant-head.svg',mechanism:'Fatal human–elephant encounters.',fact:'This is a rounded annual estimate built from recent national records, not a single global 2023 count. India reported 629 deaths in 2023–24 and Sri Lanka about 176 in 2024; OWID uses about 1,000 globally.'},
-      {name:'Tsetse flies',short:'Tsetse flies',value:1500,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/fly.svg',mechanism:'Transmission of trypanosomiasis (sleeping sickness).',fact:'IHME estimated 1,417 deaths in 2023 and WHO reported 1,098 in 2021. OWID rounds to 1,500 per year; this is far below the roughly 25,000 deaths reported around 2000.'},
-      {name:'Tapeworms',short:'Tapeworms',value:2000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/worms.svg',mechanism:'Cysticercosis, including neurocysticercosis complications.',fact:'IHME estimated 1,511 deaths in 2023, while WHO reported 6,866 in 2021. OWID uses about 2,000 per year and notes substantial uncertainty, especially around indirect neurological complications.'},
-      {name:'Scorpions',short:'Scorpions',value:3000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/scorpion.svg',mechanism:'Fatal scorpion envenomation.',fact:'This is not a 2023 count. Recent global estimates are scarce, so OWID relies partly on older studies and uses about 3,000 deaths per year.'},
-      {name:'Roundworms',short:'Roundworms',value:4000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/cathelineau/earth-worm.svg',mechanism:'Ascariasis and complications such as intestinal obstruction or sepsis.',fact:'IHME estimated 4,973 ascariasis deaths in 2023 and WHO reported 3,747 in 2021. OWID uses about 4,000 per year; attribution is difficult because deaths can be recorded under complications such as obstruction or sepsis.'},
-      {name:'Sandflies',short:'Sandflies',value:5000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/fly.svg',mechanism:'Transmission of leishmaniasis.',fact:'IHME estimated 4,627 deaths in 2023, with a wide uncertainty range. OWID rounds the evidence to ≈5,000.'},
-      {name:'Kissing bugs',short:'Kissing bugs',value:8000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/skoll/spotted-bug.svg',mechanism:'Transmission of Chagas disease.',fact:'IHME estimated 8,148 Chagas deaths in 2023; WHO sources give figures in a similar order of magnitude.'},
-      {name:'Freshwater snails',short:'Snails',value:14000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/snail.svg',mechanism:'Schistosomiasis transmission through freshwater parasite hosts.',fact:'IHME estimated 13,467 schistosomiasis deaths in 2023. WHO notes that mortality may be underestimated.'},
-      {name:'Dogs',short:'Dogs',value:40000,iconUrl:'https://api.iconify.design/fa6-solid/dog.svg?color=%23191917',mechanism:'Mostly rabies after dog bites or scratches, not attack trauma.',fact:'This is one of OWID’s more uncertain annual estimates. For 2023, IHME estimated 15,811 rabies deaths while WHO’s Global Health Estimates reported 43,833; OWID triangulates across sources to about 40,000. Dogs cause 99% of human rabies cases.'},
-      {name:'Snakes',short:'Snakes',value:100000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/lorc/snake.svg',mechanism:'Venomous snakebite envenoming.',fact:'This is an annual estimate rather than a direct 2023 count. WHO estimates 81,410–137,880 snakebite deaths per year; OWID uses 100,000 and notes that under-reporting is especially likely in rural areas.'},
-      {name:'Humans',short:'Humans',value:600000,iconUrl:'https://game-icons.net/icons/000000/transparent/1x1/delapouite/person.svg',mechanism:'Direct interpersonal violence, conflict and terrorism, and police conflict or execution.',fact:'OWID’s main IHME categories sum to 603,615 deaths and are rounded to 600,000 per year. The estimate excludes suicide and indirect deaths such as road crashes, and it can vary substantially with the level of conflict in a given year.'},
-      {name:'Mosquitoes',short:'Mosquitoes',value:760000,iconUrl:'https://api.iconify.design/fa6-solid/mosquito.svg?color=%23191917',mechanism:'Transmission of infectious diseases.',fact:'This is the category most directly tied to 2023 disease estimates: OWID’s components sum to 755,987 deaths in 2023 and are rounded to 760,000. Malaria accounts for 669,960 — about 88% — with dengue, Japanese encephalitis, yellow fever, chikungunya and other diseases making up most of the remainder.'}
-    ];
+  {
+    name: "Gray wolves",
+    short: "Wolves",
+    value: 5,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/wolf-head.svg",
+    mechanism: "Fatal attacks and, in some records, rabies.",
+    fact: "This is not a literal 2023 count. OWID uses 5 as an uncertain annual estimate. NINA recorded 26 fatalities from 2002–2020 (about 2 per year), most involving rabies; OWID allows for incomplete coverage outside Europe and North America.",
+  },
+  {
+    name: "Sharks",
+    short: "Sharks",
+    value: 6,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/shark-fin.svg",
+    mechanism: "Fatal shark attacks.",
+    fact: "This is not a literal 2023 count. The International Shark Attack File logged 54 fatal attacks from 2010–2019 — about 6 per year. It reported 14 fatalities in 2023, showing how much the annual total can fluctuate.",
+  },
+  {
+    name: "Bears",
+    short: "Bears",
+    value: 20,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/bear-head.svg",
+    mechanism: "Fatal bear attacks across several species.",
+    fact: "OWID combines several bear species and uses about 20 deaths per year from historical records rather than a single 2023 count. Brown bears and sloth bears account for most documented fatal attacks.",
+  },
+  {
+    name: "Spiders",
+    short: "Spiders",
+    value: 50,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/carl-olsen/spider-alt.svg",
+    mechanism: "Fatal envenomation after spider bites.",
+    fact: "The WHO Mortality Database reports roughly 50 deaths per year in countries with relatively complete registration. OWID notes that this likely undercounts countries with weaker death-registration systems.",
+  },
+  {
+    name: "Hippopotamuses",
+    short: "Hippos",
+    value: 50,
+    display: ">50",
+    iconUrl: "https://api.iconify.design/fa6-solid/hippo.svg?color=%23191917",
+    mechanism: "Fatal encounters with hippos.",
+    fact: "OWID places the annual toll at roughly 50; the source summary table marks it as >50. National records suggest the widely repeated 500 figure is too high. Hippo encounters can still have a high fatality rate when they occur.",
+  },
+  {
+    name: "Jellyfish",
+    short: "Jellyfish",
+    value: 100,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/jellyfish.svg",
+    mechanism: "Fatal stings, especially from box jellyfish and Irukandji.",
+    fact: "OWID uses about 100 deaths per year, not a literal 2023 count. The estimate is highly uncertain because recent global reporting is incomplete in places where lethal stings occur.",
+  },
+  {
+    name: "Crocodiles",
+    short: "Crocodiles",
+    value: 150,
+    display: ">150",
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/croc-jaws.svg",
+    mechanism: "Fatal crocodile attacks.",
+    fact: "This annual estimate is based on multi-year attack records: CrocBITE averaged about 160 deaths per year in 2010–2019, while CrocAttack data for 2015–2024 total about 150 per year for covered countries. OWID therefore uses >150.",
+  },
+  {
+    name: "Big cats",
+    short: "Big cats",
+    value: 300,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/tiger-head.svg",
+    mechanism: "Fatal attacks by tigers, lions and other large cats.",
+    fact: "This is a rounded annual estimate, not a 2023 count: OWID combines roughly 100 deaths from tigers, 100 from lions and 100 from other big cats such as leopards.",
+  },
+  {
+    name: "Bees, wasps & hornets",
+    short: "Bees / wasps",
+    value: 500,
+    iconUrl: "https://game-icons.net/icons/000000/transparent/1x1/lorc/bee.svg",
+    mechanism: "Mostly anaphylactic shock after stings.",
+    fact: "The source table rounds this to 500 per year. OWID’s detailed methodology says the recorded total is just over 500 and likely an underestimate because many countries are missing from the mortality data.",
+  },
+  {
+    name: "Elephants",
+    short: "Elephants",
+    value: 1000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/elephant-head.svg",
+    mechanism: "Fatal human–elephant encounters.",
+    fact: "This is a rounded annual estimate built from recent national records, not a single global 2023 count. India reported 629 deaths in 2023–24 and Sri Lanka about 176 in 2024; OWID uses about 1,000 globally.",
+  },
+  {
+    name: "Tsetse flies",
+    short: "Tsetse flies",
+    value: 1500,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/fly.svg",
+    mechanism: "Transmission of trypanosomiasis (sleeping sickness).",
+    fact: "IHME estimated 1,417 deaths in 2023 and WHO reported 1,098 in 2021. OWID rounds to 1,500 per year; this is far below the roughly 25,000 deaths reported around 2000.",
+  },
+  {
+    name: "Tapeworms",
+    short: "Tapeworms",
+    value: 2000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/worms.svg",
+    mechanism: "Cysticercosis, including neurocysticercosis complications.",
+    fact: "IHME estimated 1,511 deaths in 2023, while WHO reported 6,866 in 2021. OWID uses about 2,000 per year and notes substantial uncertainty, especially around indirect neurological complications.",
+  },
+  {
+    name: "Scorpions",
+    short: "Scorpions",
+    value: 3000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/scorpion.svg",
+    mechanism: "Fatal scorpion envenomation.",
+    fact: "This is not a 2023 count. Recent global estimates are scarce, so OWID relies partly on older studies and uses about 3,000 deaths per year.",
+  },
+  {
+    name: "Roundworms",
+    short: "Roundworms",
+    value: 4000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/cathelineau/earth-worm.svg",
+    mechanism:
+      "Ascariasis and complications such as intestinal obstruction or sepsis.",
+    fact: "IHME estimated 4,973 ascariasis deaths in 2023 and WHO reported 3,747 in 2021. OWID uses about 4,000 per year; attribution is difficult because deaths can be recorded under complications such as obstruction or sepsis.",
+  },
+  {
+    name: "Sandflies",
+    short: "Sandflies",
+    value: 5000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/fly.svg",
+    mechanism: "Transmission of leishmaniasis.",
+    fact: "IHME estimated 4,627 deaths in 2023, with a wide uncertainty range. OWID rounds the evidence to ≈5,000.",
+  },
+  {
+    name: "Kissing bugs",
+    short: "Kissing bugs",
+    value: 8000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/skoll/spotted-bug.svg",
+    mechanism: "Transmission of Chagas disease.",
+    fact: "IHME estimated 8,148 Chagas deaths in 2023; WHO sources give figures in a similar order of magnitude.",
+  },
+  {
+    name: "Freshwater snails",
+    short: "Snails",
+    value: 14000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/snail.svg",
+    mechanism:
+      "Schistosomiasis transmission through freshwater parasite hosts.",
+    fact: "IHME estimated 13,467 schistosomiasis deaths in 2023. WHO notes that mortality may be underestimated.",
+  },
+  {
+    name: "Dogs",
+    short: "Dogs",
+    value: 40000,
+    iconUrl: "https://api.iconify.design/fa6-solid/dog.svg?color=%23191917",
+    mechanism: "Mostly rabies after dog bites or scratches, not attack trauma.",
+    fact: "This is one of OWID’s more uncertain annual estimates. For 2023, IHME estimated 15,811 rabies deaths while WHO’s Global Health Estimates reported 43,833; OWID triangulates across sources to about 40,000. Dogs cause 99% of human rabies cases.",
+  },
+  {
+    name: "Snakes",
+    short: "Snakes",
+    value: 100000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/lorc/snake.svg",
+    mechanism: "Venomous snakebite envenoming.",
+    fact: "This is an annual estimate rather than a direct 2023 count. WHO estimates 81,410–137,880 snakebite deaths per year; OWID uses 100,000 and notes that under-reporting is especially likely in rural areas.",
+  },
+  {
+    name: "Humans",
+    short: "Humans",
+    value: 600000,
+    iconUrl:
+      "https://game-icons.net/icons/000000/transparent/1x1/delapouite/person.svg",
+    mechanism:
+      "Direct interpersonal violence, conflict and terrorism, and police conflict or execution.",
+    fact: "OWID’s main IHME categories sum to 603,615 deaths and are rounded to 600,000 per year. The estimate excludes suicide and indirect deaths such as road crashes, and it can vary substantially with the level of conflict in a given year.",
+  },
+  {
+    name: "Mosquitoes",
+    short: "Mosquitoes",
+    value: 760000,
+    iconUrl:
+      "https://api.iconify.design/fa6-solid/mosquito.svg?color=%23191917",
+    mechanism: "Transmission of infectious diseases.",
+    fact: "This is the category most directly tied to 2023 disease estimates: OWID’s components sum to 755,987 deaths in 2023 and are rounded to 760,000. Malaria accounts for 669,960 — about 88% — with dengue, Japanese encephalitis, yellow fever, chikungunya and other diseases making up most of the remainder.",
+  },
+];
 
-    export const INTRO=['Gray wolves','Sharks','Bears','Spiders','Hippopotamuses','Jellyfish','Crocodiles'];
-    export const MIDDLE=['Big cats','Bees, wasps & hornets','Elephants','Tsetse flies','Tapeworms','Scorpions','Roundworms'];
-    export const LATE=['Sandflies','Kissing bugs','Freshwater snails','Dogs'];
-    export const ALL_WHEEL=[...INTRO,...MIDDLE,...LATE];
-    export const BREAKAWAYS=['Snakes','Humans','Mosquitoes'];
-    export const ALL_NAMES=[...ALL_WHEEL,...BREAKAWAYS];
-    export const WHEEL_MAX=40000,FULL_MAX=800000;
-    export const scenes=[
-      {mode:'local',heading:'The animals we notice',subtitle:'Rounded annual estimates · local 0–200 scale',scaleValue:'200',badge:'Wolves enter first. Then the rest appear, one animal at a time.'},
-      {mode:'wide-transition',heading:'The scale changes',subtitle:'The same animals · moving onto a fixed 0–40,000 scale',scaleValue:'40,000',badge:'The seven animals travel into their positions on a scale 200× larger.'},
-      {mode:'wide-middle',heading:'The circle grows',subtitle:'Rounded annual estimates · fixed 0–40,000 scale',scaleValue:'40,000',badge:'Big cats through roundworms enter animal by animal.'},
-      {mode:'wide-late',heading:'The pathway matters',subtitle:'Rounded annual estimates · fixed 0–40,000 scale',scaleValue:'40,000',badge:'Sandflies through dogs complete the wheel, animal by animal.'},
-      {mode:'full-transition',heading:'The first breakaway',subtitle:'Rounded annual estimates · new fixed 0–800,000 scale',scaleValue:'800,000',badge:'The new wheel appears empty. Then wolves through dogs move into it.'},
-      {mode:'full-snake',heading:'Snakes enter',subtitle:'Rounded annual estimates · fixed 0–800,000 scale',scaleValue:'800,000',badge:'Snakes arrive next: a rounded estimate of about 100,000 deaths per year.'},
-      {mode:'full-human',heading:'Then us',subtitle:'Rounded annual estimates · fixed 0–800,000 scale',scaleValue:'800,000',badge:'Humans enter at about 600,000.'},
-      {mode:'full-mosquito',heading:'And then the mosquito',subtitle:'Rounded annual estimates · fixed 0–800,000 scale',scaleValue:'800,000',badge:'Mosquitoes complete the chart at about 760,000.'},
-      {mode:'explore',heading:'Explore the full ranking',subtitle:'Select animals · the radial scale adapts to the largest selected estimate',scaleValue:'800,000',badge:'Use the filters to compare subsets on the same final polar chart.'}
-    ];
+export const INTRO = [
+  "Gray wolves",
+  "Sharks",
+  "Bears",
+  "Spiders",
+  "Hippopotamuses",
+  "Jellyfish",
+  "Crocodiles",
+];
+export const MIDDLE = [
+  "Big cats",
+  "Bees, wasps & hornets",
+  "Elephants",
+  "Tsetse flies",
+  "Tapeworms",
+  "Scorpions",
+  "Roundworms",
+];
+export const LATE = ["Sandflies", "Kissing bugs", "Freshwater snails", "Dogs"];
+export const ALL_WHEEL = [...INTRO, ...MIDDLE, ...LATE];
+export const BREAKAWAYS = ["Snakes", "Humans", "Mosquitoes"];
+export const ALL_NAMES = [...ALL_WHEEL, ...BREAKAWAYS];
+export const WHEEL_MAX = 40000,
+  FULL_MAX = 800000;
+export const scenes = [
+  {
+    mode: "local",
+    heading: "The animals we notice",
+    subtitle: "Estimated human deaths per year · local 0–200 scale",
+    scaleValue: "200",
+  },
+  {
+    mode: "wide-transition",
+    heading: "The scale changes",
+    subtitle:
+      "Estimated human deaths per year · moving onto a local 0–40,000 scale",
+    scaleValue: "40,000",
+  },
+  {
+    mode: "wide-middle",
+    heading: "The circle grows",
+    subtitle: "Estimated human deaths per year · local 0–40,000 scale",
+    scaleValue: "40,000",
+  },
+  {
+    mode: "wide-late",
+    heading: "The pathway matters",
+    subtitle: "Estimated human deaths per year · local 0–40,000 scale",
+    scaleValue: "40,000",
+  },
+  {
+    mode: "full-transition",
+    heading: "The second breakaway",
+    subtitle:
+      "Estimated human deaths per year · moving onto a global 0–800,000 scale",
+    scaleValue: "800,000",
+  },
+  {
+    mode: "full-snake",
+    heading: "Snakes enter",
+    subtitle: "Estimated human deaths per year · global 0–800,000 scale",
+    scaleValue: "800,000",
+  },
+  {
+    mode: "full-human",
+    heading: "Then us",
+    subtitle: "Estimated human deaths per year · global 0–800,000 scale",
+    scaleValue: "800,000",
+  },
+  {
+    mode: "full-mosquito",
+    heading: "And then the mosquito",
+    subtitle: "Estimated human deaths per year · global 0–800,000 scale",
+    scaleValue: "800,000",
+  },
+  {
+    mode: "explore",
+    heading: "Explore the full ranking",
+    subtitle: "Estimated human deaths per year · select animals to rescale",
+    scaleValue: "800,000",
+  },
+];
