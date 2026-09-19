@@ -11,7 +11,7 @@ export function buildPolarChart(){
       const svg=document.getElementById('polarChart'),tooltip=document.getElementById('chartTooltip');
       const visualRow=document.getElementById('visualRow'),filterPanel=document.getElementById('storyFilters'),filters=document.getElementById('animalFilters');
       const selectAllBtn=document.getElementById('selectAllAnimals'),clearBtn=document.getElementById('clearAnimals'),sceneBadge=document.getElementById('sceneBadge');
-      const cx=480,cy=392,innerR=84,outerR=275,labelR=360,gap=.017;
+      const cx=480,cy=392,innerR=84,outerR=275,labelR=336,gap=.017;
       const gridG=svgEl('g'),sectorsG=svgEl('g'),leadersG=svgEl('g'),markersG=svgEl('g'),labelsG=svgEl('g'),centerG=svgEl('g');svg.append(gridG,sectorsG,leadersG,markersG,labelsG,centerG);
       const nodeMap=new Map();let token=0,rafIds=[],timers=[],active=-1,exploreInitialized=false,exploreMax=FULL_MAX;
       let exploreSelected=new Set(ALL_NAMES);
@@ -79,8 +79,8 @@ export function buildPolarChart(){
       }
       function snap(visible,mode,max,focus=[]){const vis=new Set(visible);animals.forEach(d=>vis.has(d.name)?setAnimalGeometry(d,mode,max):hideAnimal(d,mode));setFocus(visible,focus)}
       function setExploreUI(on){filterPanel.hidden=!on;visualRow.classList.toggle('explore-mode',on);sceneBadge.style.display=on?'none':''}
-      function updateHeader(scene){document.getElementById('chartHeading').textContent=scene.heading;document.getElementById('chartSubtitle').textContent=scene.subtitle;document.getElementById('scaleLabel').textContent=scene.mode==='explore'?'Current scale':'Wheel maximum';document.getElementById('scaleValue').textContent=scene.scaleValue;sceneBadge.querySelector('span').textContent=scene.badge}
-      function updateExploreScale(max){document.getElementById('scaleValue').textContent=format(max);document.getElementById('chartSubtitle').textContent=`${exploreSelected.size} selected · radial scale adapts to the largest selected estimate`}
+      function updateHeader(scene){document.getElementById('chartHeading').textContent=scene.heading;document.getElementById('chartSubtitle').textContent=scene.subtitle;sceneBadge.querySelector('span').textContent=scene.badge}
+      function updateExploreScale(max){document.getElementById('chartSubtitle').textContent=`${exploreSelected.size} selected · radial scale adapts to the largest selected estimate`}
 
       function animateExploreSelection(nextSelected){
         cancelAnimations();
@@ -141,6 +141,17 @@ export function buildPolarChart(){
 
       drawGrid('local',200);animals.forEach(d=>hideAnimal(d,'full'));
       const steps=[...document.querySelectorAll('.step')];steps.forEach(s=>s.classList.remove('is-active'));
-      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){steps.forEach(s=>s.classList.remove('is-active'));entry.target.classList.add('is-active');render(+entry.target.dataset.scene)}}),{rootMargin:'-42% 0px -42% 0px',threshold:0});
-      steps.forEach(s=>observer.observe(s));
+      let observer;
+      const mobileStory=window.matchMedia('(max-width: 980px)');
+      const setupObserver=()=>{
+        observer?.disconnect();
+        const rootMargin=mobileStory.matches?'-60% 0px -24% 0px':'-42% 0px -42% 0px';
+        observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){steps.forEach(s=>s.classList.remove('is-active'));entry.target.classList.add('is-active');render(+entry.target.dataset.scene)}}),{rootMargin,threshold:0});
+        steps.forEach(s=>observer.observe(s));
+      };
+      setupObserver();
+      mobileStory.addEventListener?.('change',()=>{
+        setupObserver();
+        if(active>=0){const current=active;active=-1;render(current)}
+      });
     }
