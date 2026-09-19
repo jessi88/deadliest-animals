@@ -4,6 +4,8 @@ An interactive scrollytelling data story about the animals associated with the m
 
 **Live site:** [https://jessi88.github.io/deadliest-animals/](https://jessi88.github.io/deadliest-animals/)
 
+Created as a submission for [MakeoverMonday](https://makeovermonday.vercel.app/dataset/what-are-the-world-s-deadliest-animals), using the “What are the world’s deadliest animals?” dataset.
+
 ## About the project
 
 The story starts with familiar animals such as wolves, sharks, bears, and crocodiles, then gradually changes the scale as larger estimates enter the picture. The polar chart grows with the narrative until snakes, humans, and mosquitoes reveal how dramatically the ranking changes.
