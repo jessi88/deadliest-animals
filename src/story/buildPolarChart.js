@@ -576,34 +576,53 @@ export function buildPolarChart() {
         `${selectedCount ?? exploreSelected.size} selected`,
       ];
     else labels = ["0–800k", "Wolves → mosquitoes"];
+    const centerOffsets = compactChart.matches
+      ? {
+          kicker: -23,
+          kickerSecondary: -11,
+          main: 10,
+          note: 28,
+        }
+      : {
+          kicker: -27,
+          kickerSecondary: -13,
+          main: 12,
+          note: 34,
+        };
+
     const ck = svgEl("text", {
       x: cx,
-      y: cy - 27,
+      y: cy + centerOffsets.kicker,
       "text-anchor": "middle",
       class: "center-kicker",
     });
     ck.textContent = "HUMAN DEATHS";
+
     const cky = svgEl("text", {
       x: cx,
-      y: cy - 13,
+      y: cy + centerOffsets.kickerSecondary,
       "text-anchor": "middle",
       class: "center-kicker center-kicker-secondary",
     });
     cky.textContent = "PER YEAR";
+
     const cm = svgEl("text", {
       x: cx,
-      y: cy + 12,
+      y: cy + centerOffsets.main,
       "text-anchor": "middle",
       class: "center-main",
     });
     cm.textContent = labels[0];
+
     const cn = svgEl("text", {
       x: cx,
-      y: cy + 34,
+      y: cy + centerOffsets.note,
       "text-anchor": "middle",
       class: "center-note",
     });
     cn.textContent = labels[1];
+
+    centerG.append(ck, cky, cm, cn);
     centerG.append(ck, cky, cm, cn);
   }
   function snap(visible, mode, max, focus = []) {
@@ -623,21 +642,37 @@ export function buildPolarChart() {
   }
   function updateExploreScale() {
     document.getElementById("chartSubtitle").textContent =
-      `Estimated human deaths per year · ${exploreSelected.size} selected · scale adapts to the largest selected estimate`;
+      `Estimated human deaths per year · ${exploreSelected.size} selected · adapting scale`;
   }
   function animateExploreSelection(nextSelected) {
     hideTooltip();
     cancelAnimations();
+
+    // Commit the new selection immediately.
+    // The animation reflects this state; it must not be responsible
+    // for committing it when it finishes.
+    const targetSelected = new Set(nextSelected);
+    exploreSelected = targetSelected;
+
+    // Keep the checkbox UI synchronized immediately as well.
+    syncFilterChecks();
+
     const nextVals = animals
-      .filter((d) => nextSelected.has(d.name))
+      .filter((d) => targetSelected.has(d.name))
       .map((d) => d.value);
+
     const nextMax = nextVals.length ? niceMax(Math.max(...nextVals)) : 200;
-    drawGrid("explore", nextMax, nextSelected.size);
-    const mode = "explore",
-      duration = reducedMotion ? 0 : 650;
+
+    drawGrid("explore", nextMax, targetSelected.size);
+
+    const mode = "explore";
+    const duration = reducedMotion ? 0 : 650;
+
     const starts = new Map();
+
     animals.forEach((d) => {
       const n = nodeMap.get(d.name);
+
       starts.set(d.name, {
         r: n.currentR ?? innerR + 0.1,
         so: n.currentSectorOpacity ?? 0,
@@ -645,61 +680,83 @@ export function buildPolarChart() {
         lo: n.currentLeaderOpacity ?? 0,
       });
     });
-    const my = token,
-      startTime = performance.now();
+
+    const my = token;
+    const startTime = performance.now();
+
     const run = (now) => {
       if (my !== token) return;
-      const raw = duration ? Math.min(1, (now - startTime) / duration) : 1,
-        t = ease(raw);
+
+      const raw = duration ? Math.min(1, (now - startTime) / duration) : 1;
+
+      const t = ease(raw);
+
       animals.forEach((d) => {
-        const n = nodeMap.get(d.name),
-          g = geometryFor(d, mode),
-          on = nextSelected.has(d.name),
-          st = starts.get(d.name);
+        const n = nodeMap.get(d.name);
+        const g = geometryFor(d, mode);
+        const on = targetSelected.has(d.name);
+        const st = starts.get(d.name);
+
         const r1 = on
           ? outerRadius(d.value, nextMax, innerR, outerR)
           : innerR + 0.1;
-        const r = lerp(st.r, r1, t),
-          pos = markerPos(g),
-          le = leaderEnds(g, r),
-          so = lerp(st.so, on ? 0.98 : 0, t),
-          mo = lerp(st.mo, on ? 1 : 0, t),
-          lo = lerp(st.lo, on ? 1 : 0, t);
+
+        const r = lerp(st.r, r1, t);
+        const pos = markerPos(g);
+        const le = leaderEnds(g, r);
+
+        const so = lerp(st.so, on ? 0.98 : 0, t);
+        const mo = lerp(st.mo, on ? 1 : 0, t);
+        const lo = lerp(st.lo, on ? 1 : 0, t);
+
         if (on) setInteractive(n, true);
+
         n.sector.setAttribute("d", annularPath(cx, cy, g.a0, g.a1, innerR, r));
+
         n.sector.style.opacity = so;
+
         n.leader.setAttribute("x1", le.from.x);
         n.leader.setAttribute("y1", le.from.y);
         n.leader.setAttribute("x2", le.to.x);
         n.leader.setAttribute("y2", le.to.y);
         n.leader.style.opacity = lo;
+
         setMarkerTransform(n.marker, pos, markerScale(mode));
+
         n.marker.style.opacity = mo;
+
         n.currentR = r;
         n.currentSectorOpacity = so;
         n.currentMarkerOpacity = mo;
         n.currentLeaderOpacity = lo;
       });
-      if (raw < 1) frame(run);
-      else {
+
+      if (raw < 1) {
+        frame(run);
+      } else {
         animals.forEach((d) => {
           const n = nodeMap.get(d.name);
-          setInteractive(n, nextSelected.has(d.name));
+          setInteractive(n, targetSelected.has(d.name));
         });
-        exploreSelected = new Set(nextSelected);
+
         exploreMax = nextMax;
         syncFilterChecks();
         updateExploreScale();
       }
     };
+
     frame(run);
   }
 
   filters.addEventListener("change", (e) => {
     if (!e.target.matches("input[type=checkbox]")) return;
-    const next = new Set(exploreSelected);
-    if (e.target.checked) next.add(e.target.value);
-    else next.delete(e.target.value);
+
+    const next = new Set(
+      [...filters.querySelectorAll("input[type=checkbox]:checked")].map(
+        (input) => input.value,
+      ),
+    );
+
     animateExploreSelection(next);
   });
   selectAllBtn.addEventListener("click", () =>

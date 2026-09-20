@@ -372,6 +372,7 @@ h1 {
   margin-top: 5px;
   font-size: 11px;
   color: var(--muted);
+  white-space: nowrap;
 }
 .scale-box {
   text-align: right;
@@ -543,6 +544,10 @@ h1 {
   letter-spacing: 0.13em;
   fill: var(--muted);
   font-weight: 800;
+}
+.center-kicker-secondary {
+  font-size: 8px;
+  letter-spacing: 0.12em;
 }
 .center-main {
   font-family: Georgia, "Times New Roman", serif;
@@ -1185,7 +1190,7 @@ h1 {
   }
   .chart-subtitle {
     font-size: 8.5px;
-    max-width: 225px;
+    max-width: none;
   }
   .scale-box {
     min-width: 68px;
@@ -1207,24 +1212,6 @@ h1 {
   }
   #polarChart {
     min-height: 0;
-  }
-  .animal-marker .animal-name {
-    font-size: 13px;
-  }
-  .animal-marker .animal-value {
-    font-size: 11px;
-  }
-  .ring-label {
-    font-size: 11px;
-  }
-  .center-kicker {
-    font-size: 11px;
-  }
-  .center-main {
-    font-size: 29px;
-  }
-  .center-note {
-    font-size: 11px;
   }
   .story-filters {
     height: 82px;
@@ -2118,11 +2105,6 @@ h1 {
 /* Polar-chart readability and final-scene release -------------------------
    Keep labels legible as the SVG scales down, and let the final story step
    reach the top of the viewport before the sticky chart is released. */
-.center-kicker-secondary {
-  font-size: 8px;
-  letter-spacing: 0.12em;
-}
-
 @media (min-width: 981px) {
   .step[data-scene="8"] {
     min-height: 100vh;
@@ -2181,18 +2163,18 @@ h1 {
     font-weight: 700;
   }
   .center-kicker {
-    font-size: 15px;
-    letter-spacing: 0.09em;
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
   .center-kicker-secondary {
-    font-size: 12.5px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    letter-spacing: 0.09em;
   }
   .center-main {
-    font-size: 36px;
+    font-size: 24px;
   }
   .center-note {
-    font-size: 14px;
+    font-size: 12px;
   }
   .grid-ring {
     stroke-width: 1.05;
